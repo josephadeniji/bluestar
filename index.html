@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Remote eBay Lister for Blue Star · Joseph Adeniji</title>
+<meta name="description" content="Sample eBay listings and a remote listing workflow for Blue Star, by Joseph Adeniji.">
+<meta property="og:title" content="Remote eBay Lister for Blue Star · Joseph Adeniji"><meta property="og:image" content="after.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b2340;--blue:#1d5fd1;--sky:#eaf2ff;--ink:#14181f;--muted:#5b6472;--line:#e3e7ee;--bg:#f6f8fb;--green:#127a43;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1080px,100% - 32px);margin:0 auto}
+header{background:var(--navy);color:#fff;padding:64px 0 56px}
+.kick{font:700 12px Inter;letter-spacing:.22em;text-transform:uppercase;color:#8fb6ff}
+h1{font:800 clamp(32px,5.4vw,54px)/1.08 Inter;letter-spacing:-.025em;margin:14px 0 18px;max-width:860px}
+h1 span{color:#8fb6ff}
+.lede{max-width:700px;color:#c9d6ea;font-size:18px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.pills span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:7px 14px;font:600 13.5px Inter}
+section{padding:56px 0 8px}
+h2{font:800 clamp(26px,3.6vw,36px)/1.15 Inter;letter-spacing:-.02em;margin-bottom:8px}
+.sub{color:var(--muted);max-width:720px;margin-bottom:26px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ba figure{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ba img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#fff}
+.ba figure:first-child img{object-fit:cover}
+.ba figcaption{padding:12px 16px;font:600 14px Inter;display:flex;justify-content:space-between;gap:10px}
+.ba figcaption em{font-style:normal;color:var(--muted);font-weight:500}
+.tag{display:inline-block;font:700 11px Inter;letter-spacing:.1em;padding:3px 8px;border-radius:6px}
+.bad{background:#fdecec;color:#b42318}.good{background:#e7f6ee;color:var(--green)}
+.listing{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:22px;box-shadow:0 10px 30px rgba(11,35,64,.05)}
+.lt{font:700 20px/1.35 Inter;color:#0f1d33}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.meta span{font:600 12.5px Inter;background:var(--sky);color:var(--blue);border-radius:20px;padding:4px 11px}
+.meta .cnt{background:#e7f6ee;color:var(--green)}
+.cols{display:grid;grid-template-columns:1.05fr 1fr;gap:26px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+td{padding:7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--muted);width:42%;padding-right:10px}
+h4{font:700 13px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.desc p{font-size:15px;margin-bottom:10px}
+.desc ul{margin:0 0 10px 18px;font-size:15px}
+.desc li{margin:3px 0}
+.why{margin-top:16px;background:#fff8e6;border:1px solid #f3e1ad;border-radius:12px;padding:12px 16px;font-size:14px;color:#5c4510}
+.why b{color:#3d2d06}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.step .n{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font:800 15px Inter;margin-bottom:12px}
+.step b{display:block;margin-bottom:4px}
+.step span{font-size:14.5px;color:var(--muted)}
+.offer{background:var(--navy);color:#fff;border-radius:22px;padding:40px;margin:56px 0 30px;text-align:center}
+.offer h2{color:#fff}
+.offer p{color:#c9d6ea;max-width:620px;margin:10px auto 24px}
+.btn{display:inline-block;background:#fff;color:var(--navy);font:700 15.5px Inter;padding:14px 26px;border-radius:40px;text-decoration:none;margin:5px}
+.btn.ghost{background:none;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+footer{padding:24px 0 40px;text-align:center;font-size:13px;color:var(--muted)}
+@media (max-width:820px){.cols,.ba{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}.listing{padding:20px}.offer{padding:28px 20px}}
+</style></head><body>
+<header><div class="wrap">
+  <div class="kick">E-Commerce Product Listing Specialist · Joseph Adeniji</div>
+  <h1>Hi Robert, your team tests and shoots. <span>I'll turn it into listings that sell.</span></h1>
+  <p class="lede">I'm a remote e-commerce specialist in Nigeria, 9 hours ahead of California. That means your team can drop photos and test notes at the end of the day, and the listings are live on eBay before you open the next morning.</p>
+  <div class="pills"><span>eBay titles &amp; item specifics</span><span>Product photo editing</span><span>Sold-comp pricing</span><span>Listing audits</span><span>New &amp; vintage tech</span></div>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>Same photo, different sale</h2>
+    <p class="sub">Your techs shouldn't have to be photographers. I take a quick phone shot from the bench and turn it into a clean, square, white-background image that meets eBay's photo standards. <i>(Demo photo.)</i></p>
+    <div class="ba">
+      <figure><img src="before.jpg" alt="Laptop photographed on a cluttered workbench"><figcaption><span><span class="tag bad">BEFORE</span> Phone snapshot from the bench</span><em>yellow cast, clutter</em></figcaption></figure>
+      <figure><img src="after.jpg" alt="Same laptop on a clean white background"><figcaption><span><span class="tag good">AFTER</span> Ready for eBay</span><em>1600×1600, pure white, color-corrected</em></figcaption></figure>
+    </div>
+  </section>
+  <section>
+    <h2>Three sample listings</h2>
+    <p class="sub">The kind of hardware that comes through ITAD and GPU decommissioning. Each listing is written to rank in eBay search: a keyword-first title, every item specific filled in, and an honest condition and test report that cuts down on returns. The configurations are examples. Real listings would use your techs' test notes and current sold prices.</p>
+
+    <div class="listing">
+      <div class="lt">Lenovo ThinkPad T14 Gen 2 14" FHD Intel i5-1145G7 16GB RAM 256GB SSD Win 11 Pro</div>
+      <div class="meta"><span class="cnt">79 / 80 characters</span><span>Laptops &amp; Netbooks › PC Laptops</span><span>Condition: Used, Very Good</span></div>
+      <div class="cols">
+        <div><h4>Item specifics</h4><table>
+          <tr><td>Brand</td><td>Lenovo</td></tr><tr><td>Series / Model</td><td>ThinkPad T14 Gen 2</td></tr>
+          <tr><td>Processor</td><td>Intel Core i5-1145G7 (11th Gen, 4 cores)</td></tr><tr><td>RAM</td><td>16 GB</td></tr>
+          <tr><td>SSD capacity</td><td>256 GB NVMe</td></tr><tr><td>Screen size</td><td>14 in, 1920 × 1080</td></tr>
+          <tr><td>Operating system</td><td>Windows 11 Pro (fresh install)</td></tr><tr><td>Features</td><td>Backlit keyboard, Wi-Fi 6, Bluetooth, webcam</td></tr>
+          <tr><td>Storage wipe</td><td>Data-sanitized (certificate available)</td></tr></table></div>
+        <div class="desc"><h4>Condition &amp; test report</h4>
+          <p>Fully tested by our technicians. Boots to Windows 11 Pro, and the battery holds a working charge.</p>
+          <ul><li>✔ Screen: no dead pixels; light wear on the lid</li><li>✔ Keyboard, trackpad, USB-C, HDMI and webcam all tested</li><li>✔ Battery health: [tech fills in %]</li><li>Includes a 65W USB-C charger</li></ul>
+          <p>Business-grade machine, ready for work or school. Ships double-boxed within 1 business day.</p></div>
+      </div>
+      <div class="why"><b>Why it sells:</b> buyers search by model + CPU + RAM, so those come first in the title. "Data-sanitized" builds trust, and it's something an ITAD company can say that a regular reseller can't.</div>
+    </div>
+
+    <div class="listing">
+      <div class="lt">NVIDIA Tesla V100 32GB HBM2 PCIe GPU Accelerator Card Data Center AI Tested</div>
+      <div class="meta"><span class="cnt">75 / 80 characters</span><span>Computer Components › Graphics/Video Cards</span><span>Condition: Used</span></div>
+      <div class="cols">
+        <div><h4>Item specifics</h4><table>
+          <tr><td>Brand</td><td>NVIDIA</td></tr><tr><td>Chipset / GPU</td><td>Tesla V100 (Volta)</td></tr>
+          <tr><td>Memory</td><td>32 GB HBM2</td></tr><tr><td>Connectors</td><td>PCIe 3.0 x16</td></tr>
+          <tr><td>Cooling</td><td>Passive (server airflow required)</td></tr><tr><td>Form factor</td><td>Full height, dual slot</td></tr>
+          <tr><td>MPN</td><td>[from card label]</td></tr><tr><td>Use</td><td>AI / ML training, HPC, data center</td></tr></table></div>
+        <div class="desc"><h4>Condition &amp; test report</h4>
+          <p>Pulled from a decommissioned data center cluster and tested before listing.</p>
+          <ul><li>✔ Detected in nvidia-smi with the full 32 GB</li><li>✔ Stress test passed: [tech fills in duration/temp]</li><li>⚠ Passive cooling: needs a server chassis or added airflow</li><li>Card only, no cables or brackets unless pictured</li></ul>
+          <p>Packed in an anti-static bag with foam. Ships within 1 business day.</p></div>
+      </div>
+      <div class="why"><b>Why it sells:</b> GPU buyers are technical and wary. Stating the cooling requirement up front prevents "it overheats" returns, and showing nvidia-smi proof answers their first question before they ask it.</div>
+    </div>
+
+    <div class="listing">
+      <div class="lt">Dell PowerEdge R640 10SFF 1U Server 2x Xeon Gold 6130 32-Core 256GB RAM H730P</div>
+      <div class="meta"><span class="cnt">77 / 80 characters</span><span>Enterprise Networking, Servers › Servers</span><span>Condition: Used</span></div>
+      <div class="cols">
+        <div><h4>Item specifics</h4><table>
+          <tr><td>Brand / Model</td><td>Dell PowerEdge R640</td></tr><tr><td>Form factor</td><td>1U rack, 10 × 2.5" SFF bays</td></tr>
+          <tr><td>Processors</td><td>2 × Intel Xeon Gold 6130 (16C, 2.1 GHz)</td></tr><tr><td>Memory</td><td>256 GB DDR4 ECC RDIMM</td></tr>
+          <tr><td>RAID</td><td>PERC H730P Mini</td></tr><tr><td>Power</td><td>2 × redundant PSU</td></tr>
+          <tr><td>Remote mgmt</td><td>iDRAC9 [license level]</td></tr><tr><td>Drives</td><td>[included / not included]</td></tr></table></div>
+        <div class="desc"><h4>Condition &amp; test report</h4>
+          <p>Fully tested and reset to factory defaults. Lifecycle log cleared.</p>
+          <ul><li>✔ POSTs with all 256 GB detected, no iDRAC errors</li><li>✔ Both power supplies tested, fans normal</li><li>✔ Firmware: [BIOS / iDRAC versions]</li><li>Rails and bezel: [yes / no]</li></ul>
+          <p>Palletized or double-boxed with corner protection. Local pickup in Pittsburg, CA available.</p></div>
+      </div>
+      <div class="why"><b>Why it sells:</b> server buyers filter by CPU, RAM and bay count. "No iDRAC errors" and firmware versions are what IT buyers check first, and offering local pickup brings in Bay Area buyers.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it would work</h2>
+    <p class="sub">Your techs stay on the bench. I handle everything that happens on a screen.</p>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><b>Bench</b><span>Techs test the item, take 4–6 phone photos and fill in one row of a shared sheet: model, specs, test results.</span></div>
+      <div class="step"><div class="n">2</div><b>Overnight</b><span>I check sold comps, write the title, specifics and description, and edit the photos.</span></div>
+      <div class="step"><div class="n">3</div><b>Live by morning</b><span>Listings go live before you open, priced to move and ready to ship.</span></div>
+      <div class="step"><div class="n">4</div><b>Weekly audit</b><span>Stale listings get repriced, retitled or relisted, and I send you a short report.</span></div>
+    </div>
+  </section>
+
+  <div class="offer">
+    <h2>Send me 10 items. I'll list them free.</h2>
+    <p>Share the photos and test notes for any 10 items, and I'll send back finished listings ready to publish. If you like the results, we can talk about doing this every day.</p>
+    <a class="btn" href="https://www.behance.net/Adeniji_Joseph" target="_blank" rel="noopener">See my design work</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/joseph-bisayo-4420b2375" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</main>
+<footer>Made by Joseph Adeniji for Blue Star · Sample listings use example configurations · Demo photo for illustration</footer>
+</body></html>
